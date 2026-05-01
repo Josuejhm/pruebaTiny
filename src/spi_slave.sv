@@ -8,6 +8,7 @@
 //   - tx_data cargado en paralelo antes de cs_n bajo
 //   - Señal rx_valid pulsa 1 ciclo al completar recepción
 // =============================================================================
+`timescale 1ns/1ps
 
 module spi_slave #(
     parameter CPOL = 0,   // Polaridad del reloj: 0 = inactivo en bajo, 1 = inactivo en alto
