@@ -1,57 +1,51 @@
 # Tiny Tapeout project information
 project:
-  title:        "tt_um_example"      # Project title
-  author:       "josue"      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Mux de 4 entradas"      # One line description of what your project does
-  language:     "SystemVerilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  title:        "SPI Slave 8-bit"
+  author:       "Ronald"
+  discord:      ""
+  description:  "SPI Slave de 8 bits, modo 0 (CPOL=0 CPHA=0)"
+  language:     "SystemVerilog"
+  clock_hz:     50000000
 
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  tiles: "1x1"
 
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
   top_module:  "tt_um_example"
 
-  # List your project's source files here.
-  # Source files must be in ./src and you must list each source file separately, one per line.
-  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
-    - "project.v"
-    - "mux_2to1_4b.sv"
+    - "spi_slave.sv"        # ← primero el módulo base
+    - "tt_um_example.sv"    # ← luego el wrapper
 
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+# The pinout of your project.
 pinout:
   # Inputs
-  ui[0]: "a0"
-  ui[1]: "a1"
-  ui[2]: "a2"
-  ui[3]: "a3"
-  ui[4]: "b0"
-  ui[5]: "b1"
-  ui[6]: "b2"
-  ui[7]: "b3"
+  ui[0]: "sck"
+  ui[1]: "cs_n"
+  ui[2]: "mosi"
+  ui[3]: ""
+  ui[4]: ""
+  ui[5]: ""
+  ui[6]: ""
+  ui[7]: ""
 
   # Outputs
-  uo[0]: "q0"
-  uo[1]: "q1"
-  uo[2]: "q2"
-  uo[3]: "q3"
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "rx_data[0]"
+  uo[1]: "rx_data[1]"
+  uo[2]: "rx_data[2]"
+  uo[3]: "rx_data[3]"
+  uo[4]: "rx_data[4]"
+  uo[5]: "rx_data[5]"
+  uo[6]: "rx_data[6]"
+  uo[7]: "rx_data[7]"
 
   # Bidirectional pins
-  uio[0]: "s"
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "miso"
+  uio[1]: "rx_valid"
+  uio[2]: "tx_data[2]"
+  uio[3]: "tx_data[3]"
+  uio[4]: "tx_data[4]"
+  uio[5]: "tx_data[5]"
+  uio[6]: "tx_data[6]"
+  uio[7]: "tx_data[7]"
 
 # Do not change!
 yaml_version: 6
