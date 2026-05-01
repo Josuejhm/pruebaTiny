@@ -8,6 +8,8 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = spi_slave.sv tt_um_spi.v
 
+COMPILE_ARGS += -g2012 # Use SystemVerilog 2012 standard
+
 ifneq ($(GATES),yes)
 
 # RTL simulation:
