@@ -13,7 +13,7 @@ project:
 
   source_files:
     - "spi_slave.sv"        # ← primero el módulo base
-    - "tt_um_example.sv"    # ← luego el wrapper
+    - "tt_um_spi.v"
 
 # The pinout of your project.
 pinout:
